@@ -131,30 +131,40 @@
 			<div class="m1 p2 white">
 				<div class="clearfix">
 					<div class="left">
-						<h1 class="h2 m0"><a href="/2017/05/04/hello-world/" class="black">
-						Hello World
+						<h1 class="h2 m0"><a href="/2016/08/22/Pointer-event，一个神奇的css属性/" class="black">
+						Pointer-event，一个神奇的css属性
 						</a></h1>
 					</div>
 					<div class="right"><span class="h6 muted black">
-						May 4 2017
+						Aug 22 2016
 					</span></div>
 				</div>
 			</div>
 			<div class="p2 border-top">
-				<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+				<p>　　搞前端的朋友们应该听说过这个属性吧。每年圣诞节的时候，许多网页上都会挂出一个雪花飘落的特效增加一些节日气氛。有一些是用flash实现的，也有用HTML+js实现的。当时就很好奇为何在页面z轴最上层增加了一个层却完全不会影响下面元素的任何事件响应。简直是前端黑科技。后来看了大神的解释，原来只用了一个的css属性pointer-event就可以搞定一切了。</p>
+<p>　　看上去确实很神奇，以为会是事件冒泡代理转发之类的很难懂的概念。实际上超级简单，对某一个元素比如div采用div{pointer-event:none}即可让这个HTML元素（包括它的所有子孙元素）失去所有的事件响应。鼠标焦点会直接无视它，click、mouseover等所有事件会穿透它到达它的下一级元素。这个属性看起来似乎很有用，让我一直都想怎样在项目中能有点实际的意义。直到这两天做一个数据可视化的项目，终于找到了一个用武之地。</p>
+<p>   <img src="http://wx1.sinaimg.cn/large/71144b5cly1fisvzccva8j21hc0u0x6p.jpg" width="100%"></p>
+<p>　　如图，页面z轴上分两层，底层是基于百度地图和Echarts做的全屏大地图，上层container容器也是全屏的，是用Vue+webSocket做的实时图表table和信息展示文字及header部分，看着简直完美。跑起来测试，妈蛋，地图无法用滚轮缩放移动了，Echart的组件也无法点击交互了。原因也很简单，上层的container层把地图‘挡住了’，这种时候用pointer-event就很有用了，直接pointer-event:none搞定。但是这样一来table因为继承的关系，里面的交互事件也用不了了（本来每行点击可以弹一个dialog展示详情的），这时候可以针对table单独用一个pointer-event:auto事件就又回来了。<br>　　<br>　　这就是我目前遇到了使用这个属性最好的使用场景，那就是用来做一些特效类的交互层级比较多的页面，当然如果你脑洞开得够大，用它动态绑定一些元素，感觉可以玩出一些黑魔法。如果不知道这个属性的话，暂时我还真没想到其它的方案解决这个难题，欢迎谈谈你的想法啊。<br>　　<br>　　另外，因为是css3属性，不支持IE直到9！</p>
 
 			</div>
 			<div class="p2 border-top">
 				<div class="clearfix">
 					<div class="left">
+						
+							<script type="text/javascript">
+								document.write('<a href="/tags/博客/" class="muted h6 mb1 bold btn btn-outline '+chooseOne(colors)+'">博客</a>');
+								//document.write('<span onclick="window.location=\'' + ' /tags/博客/ ' + '\'" class="clickable h6 bold inline-block px1 '+chooseOne(colors)+' rounded">博客</span>');
+							</script>
+						
+							<script type="text/javascript">
+								document.write('<a href="/tags/文章/" class="muted h6 mb1 bold btn btn-outline '+chooseOne(colors)+'">文章</a>');
+								//document.write('<span onclick="window.location=\'' + ' /tags/文章/ ' + '\'" class="clickable h6 bold inline-block px1 '+chooseOne(colors)+' rounded">文章</span>');
+							</script>
+						
+							<script type="text/javascript">
+								document.write('<a href="/tags/前端/" class="muted h6 mb1 bold btn btn-outline '+chooseOne(colors)+'">前端</a>');
+								//document.write('<span onclick="window.location=\'' + ' /tags/前端/ ' + '\'" class="clickable h6 bold inline-block px1 '+chooseOne(colors)+' rounded">前端</span>');
+							</script>
 						
 					</div>
 					<div class="ml2 right"><span class="h6 muted black"> </span></div>
