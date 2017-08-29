@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	
+
+	<title>标签流 VS 脚本流 | 黑皮书</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	
+	
+	<link rel="stylesheet" href="/css/normalize.css" type="text/css">
+	<link rel="stylesheet" href="/css/basscss.css" type="text/css">
+	<link rel="stylesheet" href="/css/basscss-ui-groups.css" type="text/css">
+	<link rel="stylesheet" href="/css/tomorrow.css" type="text/css">
+	<link rel="stylesheet" href="/css/style.css" type="text/css">
+	<!-- ****** faviconit.com favicons ****** -->
+	<link rel="shortcut icon" href="/favicons/favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="/images/favicon.ico">
+	<link rel="icon" type="image/png" sizes="196x196" href="/favicons/favicon-192.png">
+	<link rel="icon" type="image/png" sizes="160x160" href="/favicons/favicon-160.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="/favicons/favicon-64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16.png">
+	<link rel="apple-touch-icon" href="/favicons/favicon-57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/favicons/favicon-114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/favicons/favicon-72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/favicons/favicon-144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/favicons/favicon-60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/favicons/favicon-120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/favicons/favicon-76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/favicons/favicon-152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicons/favicon-180.png">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="/favicons/favicon-144.png">
+	<meta name="msapplication-config" content="/browserconfig.xml">
+	<!-- ****** faviconit.com favicons ****** -->
+	
+		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+	
+	
+
+	<!--[if lt IE 9]><script src="/js/html5.js" type="text/javascript"></script><![endif]-->
+	<script src="/js/main.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<section class="container m4 clearfix">
+		<div class="clearfix">
+			<div class="mb4 sm-flex center nowrap">
+	<div class="flex-auto block">
+		<p class="inline h2">黑皮书</p> | <small class="muted">不肯媚俗的心</small>
+	</div>
+</div>
+
+			<div class="mn1 center">
+	
+		<a href="/./" class="btn button-narrow">首页</a>
+	
+		<a href="/archives/" class="btn button-narrow">归档</a>
+	
+		<a href="/tags/" class="btn button-narrow">关于</a>
+	
+	<a href="/search.html" class="btn button-narrow" onclick="loadJQuery(this, event);" data-modal>
+		<svg class="icon" data-icon="search"></svg>
+	</a>
+</div>
+
+			<div class="p0 col col-12">
+				<div class="m0 py2">
+	<div class="md-col-12">
+		<div class="overflow-hidden bg-white rounded">
+			<div class="m1 p2 white">
+				<div class="clearfix">
+					<div class="left">
+						<h1 class="h2 m0"><a href="/2017/05/29/标签流-VS-脚本流/" class="black">
+						标签流 VS 脚本流
+						</a></h1>
+					</div>
+					<div class="right"><span class="h6 muted black">
+						May 29 2017
+					</span></div>
+				</div>
+			</div>
+			<div class="p2 border-top">
+				<p>　　搞过点前端，玩过几个框架之后，基本都会发现框架在设计上的一些套路和流派，今天给大家扒一扒其中的两个书写流派“标签流”和“脚本流”<br>　　我们以一个button按钮为例：<img src="http://wx4.sinaimg.cn/mw690/71144b5cly1fj0wznx1w2j201m00x0sh.jpg" alt="Alt text">  </p>
+<p>这样裸写HTML标签的方式基本没法儿复用，功能和样式都太弱鸡了。搞项目基本没人会这样干了  </p>
+<p>　　最常用的Bootstrap框架的写法是这样的:<br><img src="http://wx1.sinaimg.cn/mw690/71144b5cly1fj0wzojs99j20fu02hmx3.jpg" alt="Alt text"><br>　　仍然是HTML标签为主体，结构一目了然，按需配置样式，事件得靠自己加。它的结构、样式、行为完全分离，有一定有复用价值。但是用过Bootstrap的都知道，基本就是对着官网例子‘复制’‘粘贴’，真干起重活来还是很低效。  </p>
+<p>　　然后有了封装度高一点的jQueryUI，写法大概是这样的：<br><img src="http://wx1.sinaimg.cn/mw690/71144b5cly1fj0wzp7t5bj20dp0chweq.jpg" alt="Alt text">  </p>
+<p>　　jQueryUI是比较尴尬的，看着像标签流的写法，有声明式的标签，但属性绑定都在js中依赖options的配置，这又是命令式脚本流的干法，既要写HTML，又要写js，复用性也不是那么方便。  </p>
+<p>　　再看看封装度最高的ExtJS，标准写法长这样：<br><img src="http://wx4.sinaimg.cn/mw690/71144b5cly1fj0wzle6htj20ag06zglm.jpg" alt="Alt text">  </p>
+<p>　　这是标准的命令式写法，完全不用写一行HTML，框架已经全封装好了，需要用的时候随时new 一个button实例就好了，所有的方法人已经替你准备好了，只需要你按需求写完配置就可以了。其实在这种封装度下，你基本上已经不需要懂HTML、css，甚至javascript了，认得已经单词就能学个七八成了。看起来很美好是吧。但是！！！这时候老板突然说，你把这个按钮上给我加一道光吧，blingbling的那种。怎么办？你把文档从头翻到尾，我能怎么办？我也很绝望啊。  </p>
+<p>　　这里就很容易看出来了，标签流的写法以HTML为核心，脚本流的写法以js为核心，脚本流的东西用起来爽，改起来烦，标签流的写法正相反。早期做网站 美工负责出界面，后端程序员负责套模板，php里甚至可以直接写HTML不要太爽，至于js特效什么的在网上随便扒一个就是干，所以大家基本都是标签流的写法。后来web应用火起来了，页面全走前端渲染，脚本流靠js包打天下的写法又火了。</p>
+<p>　　有什么办法能结合标签流可读性和脚本流复用性这两方面的优点呢？？拿目前最火的前端三大框架为例，最早的AngularJS（1.3版本）是这样写的：<br><img src="http://wx2.sinaimg.cn/mw690/71144b5cly1fj0wzmy7koj20jf0ep0th.jpg" alt="Alt text">  </p>
+<p>　　在HTML中使用自定义标签<my-btn>提供了一个挂载点创建元素，自定义属性看起来直观用起来方便，复用性相当好。不过这种写法在js中定义组件是比较有难度的，写法比较恶心。后来就出来了React，用ES6的写法是这样的：<br><img src="https://app.yinxiang.com/shard/s53/res/350b182c-ce2c-40f5-928a-e17df41f7bf2" alt="Alt text">  </my-btn></p>
+<p>　　React的理念非常简单又特立独行，你又想要标签又想要脚本？简单啊，我把HTML和js合在一起做一门新’语言‘，叫JSX，所以React的代码里看起来既有标签又有脚本。这种组件化的搞法应该说还是目前最强悍的思路了。当然有人不喜欢JSX那种all in js的拧巴的写法，又有了大家喜闻乐见的Vue，写法是这样子的：<br><img src="http://wx1.sinaimg.cn/mw690/71144b5cly1fj0wzluyhfj20g80fp0t7.jpg" alt="Alt text">  </p>
+<p>　　标签用法和Angular基本一样，脚本写法则更像React。果然是前端界的一股清流啊。<br>　　目前来说，我感觉标签流的写法在组织架构和易读性通用性上会好一些，web page和web app基本都能干，只是组件搞复杂了之后满屏的bind、model实在太烦了。React功能强大，不过jsx+babel编译玩得有点过火，调试和可读性比较麻烦，有时想干点猥琐的事情很难下手。<br>　　所以要怎么选呢？如果你是设计转前端，标签流上手容易，如果你是后端搞前端，毫无疑问脚本流更方便！</p>
+
+			</div>
+			<div class="p2 border-top">
+				<div class="clearfix">
+					<div class="left">
+						
+					</div>
+					<div class="ml2 right"><span class="h6 muted black"> </span></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="clearfix mt2">
+		
+		
+		<a href="/2017/05/10/前端面试二三则/" class="right btn">
+			next: 前端面试“二三事”
+			<svg class="icon" data-icon="chevron-right"></svg>
+		</a>
+		
+	</div>
+	
+	
+</div>
+
+
+			</div>
+		</div>
+	</section>
+	<div class="container mb2 clearfix">
+	<div class="sm-flex center nowrap mb2 h5">
+		<div class="flex-auto border-bottom">
+			<a href="https://hexo.io/" class="btn block muted">Hexo</a>
+		</div>
+		<div class="flex-auto border-bottom">
+			<a href="https://zllovesuki.git.sx/essays/2016/02/hexo-theme-weightless/" class="btn block">Weightless</a> Theme
+		</div>
+		<div class="flex-auto border-bottom">
+			Rocking <a href="http://www.basscss.com/" class="btn block">Basscss</a>
+		</div>
+		<div class="flex-auto border-bottom">
+			
+		</div>
+	</div>
+</div>
+<script src="/js/geomicons.js"></script>
+<script type="text/javascript">
+	var icons = document.querySelectorAll('[data-icon]');
+	geomicons.inject(icons);
+</script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91171801-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
