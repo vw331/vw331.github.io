@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>前端框架和库 | 黑皮书</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近公司的一款产品因为积重难返打算重构，涉及到了前端的部分，因为我们公司并没有专业的前端工程师，最后便是各方面军聚在一起讨论前端框架的选型。老板最看重是界面和交互，经常把一帮java程序员刀耕火种撸出来的页面喷出翔，嘱咐我参考Bootstrap这样的框架设计界面，技术经理担心团队的上手难度想用jQuery，之前的产品主要负责人头疼的是项目维护和规范问题，力主MVC和组件化。还有同学安利了比较时">
+<meta name="keywords" content="博客,文章,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端框架和库">
+<meta property="og:url" content="http://aboutsunhao.com/2016/03/01/前端框架和库/index.html">
+<meta property="og:site_name" content="黑皮书">
+<meta property="og:description" content="最近公司的一款产品因为积重难返打算重构，涉及到了前端的部分，因为我们公司并没有专业的前端工程师，最后便是各方面军聚在一起讨论前端框架的选型。老板最看重是界面和交互，经常把一帮java程序员刀耕火种撸出来的页面喷出翔，嘱咐我参考Bootstrap这样的框架设计界面，技术经理担心团队的上手难度想用jQuery，之前的产品主要负责人头疼的是项目维护和规范问题，力主MVC和组件化。还有同学安利了比较时">
+<meta property="og:updated_time" content="2017-08-31T16:59:28.639Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端框架和库">
+<meta name="twitter:description" content="最近公司的一款产品因为积重难返打算重构，涉及到了前端的部分，因为我们公司并没有专业的前端工程师，最后便是各方面军聚在一起讨论前端框架的选型。老板最看重是界面和交互，经常把一帮java程序员刀耕火种撸出来的页面喷出翔，嘱咐我参考Bootstrap这样的框架设计界面，技术经理担心团队的上手难度想用jQuery，之前的产品主要负责人头疼的是项目维护和规范问题，力主MVC和组件化。还有同学安利了比较时">
+  
+    <link rel="alternate" href="/atom.xml" title="黑皮书" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/typing.css">
+</head>
+
+  
+    
+      <body>
+    
+  
+      <div id="container" class="container">
+        <article id="post-前端框架和库" class="article article-type-post" itemscope itemprop="blogPost">
+  <header id="header" class="header">
+  <nav id="main-nav" class="main-nav">
+    
+      <a class="main-nav-link" href="/">主页</a>
+    
+      <a class="main-nav-link" href="/archives">分类</a>
+    
+      <a class="main-nav-link" href="/about">关于我</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+    
+  </nav>
+</header>
+
+  <hr/>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前端框架和库
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <p>　　最近公司的一款产品因为积重难返打算重构，涉及到了前端的部分，因为我们公司并没有专业的前端工程师，最后便是各方面军聚在一起讨论前端框架的选型。老板最看重是界面和交互，经常把一帮java程序员刀耕火种撸出来的页面喷出翔，嘱咐我参考Bootstrap这样的框架设计界面，技术经理担心团队的上手难度想用jQuery，之前的产品主要负责人头疼的是项目维护和规范问题，力主MVC和组件化。还有同学安利了比较时髦的mvvm框架。作为无聊围观的吃瓜设计师，也是听得我一脸懵逼了。前端框架选型无论是圈里圈外都是热门话题。然而到底什么叫框架，不仅圈外人一锅乱炖，前端的也经常各种乱入，百度一下各种官方和接地气的解释，乍看是懂了，但是实际应用中在各种语境和七嘴八舌的引申下还是经常让人感觉说在鸡同鸭讲。好比老板说要做个H5页面，我一直觉得那是营销和推广人员的活儿，和前端HTML5并没有五毛钱关系。今天也就吐槽几句前端框架、库和它引发的交流障碍症 。<br>　　<br>　　jQuery是一个库（library）而不是框架这肯定是没有疑问的。但你应该能想到圈外人提起jQuery框架，基本上是指包含了的基于jQuery的各种组件和工具，比如Bootstrap,jQuery UI等等。我觉得js库最核心的点在于对一些原生对象比如DOM和event等等的一系列封装，屏蔽了兼容性差异，解决开发中的重复操作，提升效率。比如Ext中的Ext_core就是一个单独的库。同理，我觉得require.js、underscore.js并不称为库，而应该算是工具(tool)，它们解决的是单一的问题，更类似于jQuery中的sizzle选择器。<br>　　<br>　　组件(component)应该算个HTML的概念，select就是个组件。但是原生的HTML组件实在太弱了，架不住五花八门的实际需要，用css和js实现了更精美更强大的组件，比如tree、grid、dialog等等。大多组件是基于某一个库的，比如jQuery UI是基于jQuery,还有淘宝的kissy，kissy本来也应该是一个库，但它也有了自己的组件。多个的组件集成在一起(大多是基于一个widget的基类)，便成为了组件库。  </p>
+<p>　　然而组件库也不能算是框架（framework），在我看来真正的框架应该能承担一套完整的架构，包括代码的分层、结构、机制、规范、等等。狭义的框架是很务虚的，通常是基于一种设计模式，比如MVC、MVVM。在交流中提到的框架基本是广义的、务实的，Angular本身也有一个库，它是基于MVVM的，但是搭上ionic组件库和route等工具它是一个事实上的框架。比如Easy UI，它在jQuery组件库的基础上又来了一层抽象，进化成了一个框架。大家经常提到的jQuery框架，实际上就来源于这里，在一层一层的抽象和实现中，jQuery库为他整个生态代言而已。  </p>
+<p>　　在各人口中这些名词的指代不明确的情况下，经常要学会分清他们的意图。比如Bootstrap框架，组件少得可怜，称它为皮肤都不冤，Bootstrap虽然是基于jQuery的，但实际上在Angular、Vue、React下都有实现，在只会看脸的老板的口中对应的是一种界面和交互样式。所以你并不是一定要选用twitter出品的那个Bootstrap，完全可以把老气的jQuery的改装成Bootstrap的样式。Bootstrap正是在扁平化、css3以及移动端推进下演变成了一种设计语言。<br>在交流中你经常得去这样解读对方说话的含义，说web app的时候是在说基于webView的网页还是phoneGap的那套实现？说手机网页的时候是指响应式还是自适应？甚至是做一个淘宝这样的网站这种的需求。各种技术词的滥用经常让人抓狂。明明ABC是不同层面的东西，MCV、扁平化、组件化、jQuery本来就是可以一起开撸的啊。 </p>
+<p>　　所以呢，想要成为一个有经验的前端老司机，无论什么库、框架、模式，终究要组合起来是一个解决方案。对于老板和同事口中的各种技术名词，姑妄听之，懂得他们指代的需求就好了。这也就要求了不能整天只会埋头写代码，身为技术也要多关注公司业务和互联网的潮流风向了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/2016/03/01/前端框架和库/" class="article-date">
+  <time datetime="2016-02-29T16:53:03.000Z" itemprop="datePublished">2016-03-01</time>
+</a>
+
+        </li>
+        
+        
+          <li>
+            <span class="label">Tag:</span>
+            
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
+
+
+          </li>
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav" class="article-nav">
+  
+    <a href="/2016/08/22/Pointer-event，一个神奇的css属性/" id="article-nav-newer" class="article-nav-link-wrap newer">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Pointer-event，一个神奇的css属性
+        
+      </div>
+    </a>
+  
+  
+    <span id="article-nav-older" class="article-nav-link-wrap older"></span>
+  
+</nav>
+
+
+  
+</article>
+
+
+
+
+      </div>
+      
+    <footer id="footer" class="post-footer footer">
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>联系我:sunzijideyuandi@gmail &nbsp;&nbsp; 知乎: <a href="http://zhihu.com/people/aboutwanzhu">http://zhihu.com/people/aboutwanzhu</a></p>
+
+
+      </div>
+    </footer>
+
+      
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/typing.js"></script>
+<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
+    </div>
+  </body>
+</html>
